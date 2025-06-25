@@ -20,7 +20,7 @@ OBJS		=	$(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-		@echo "\033[1;32mMake .o and executable.\033[0m"
+		@echo "\033[1;32mMake .o and $(NAME).\033[0m"
 		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp

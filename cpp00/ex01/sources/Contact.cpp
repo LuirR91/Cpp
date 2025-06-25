@@ -4,12 +4,12 @@
 void Contact::display_row()
 {
 	std::string str[] = {first_name, last_name, nick_name, ""}; // Create array with 3 fields + empty terminator
-	for (int i = 0; !str[i].empty(); i++) // Loop through non-empty strings
+	for (int i = 0; !str[i].empty(); i++)
 	{
-		if (str[i].length() > 10) // If string is longer than 10 characters
-			std::cout << str[i].substr(0, 9) << "." << "|"; // Truncate to 9 chars + dot + pipe
-		else														// If string is 10 chars or less
-			std::cout << std::setw(10) << str[i].substr(0, 10) << "|"; // Right-align in 10-char field + pipe
+		if (str[i].length() > 10)
+			std::cout << str[i].substr(0, 9) << "." << "|";
+		else
+			std::cout << std::setw(10) << str[i].substr(0, 10) << "|";
 	}
 	std::cout << std::endl;
 }
@@ -27,25 +27,25 @@ void Contact::display_info()
 // Method to validate phone number format
 void Contact::number_validity()
 {
-	if (!std::cin)			// If input stream is in error state
+	if (!std::cin)
 		return;
-	if (!isdigit(phone_number[0]) && phone_number[0] != '+') // If first char is not digit or '+'
-		phone_number = ""; // Clear phone number (mark as invalid)
-	for (int i = 1; phone_number[i]; i++) // Loop through remaining characters
+	if (!isdigit(phone_number[0]) && phone_number[0] != '+')
+		phone_number = "";
+	for (int i = 1; phone_number[i]; i++)
 	{
-		if (!isdigit(phone_number[i])) // If character is not a digit
-			phone_number = ""; // Clear phone number (mark as invalid)
+		if (!isdigit(phone_number[i]))
+			phone_number = "";
 	}
-	if (phone_number.empty()) // If phone number was marked invalid
+	if (phone_number.empty())
 		std::cout << "Invalid phone number, try again." << std::endl;
 }
 
 // Method to check if contact has any data
 int	Contact::is_empty()
 {
-	if (first_name.empty()) // If first name is empty
-		return (1); // Return 1 (true - contact is empty)
-	return (0); // Return 0 (false - contact has data)
+	if (first_name.empty())
+		return (1);
+	return (0);
 }
 
 // Method to validate and format input
@@ -55,7 +55,7 @@ std::string Contact::field_formater(std::string prompt, int flag)
 
 	while (prompt[++i])
 	{
-		if ((isspace(prompt[i]) || prompt[i] == 27 || prompt[i] == 127) && flag != 4) // If char is whitespace or ESC (ASCII 27)
+		if ((isspace(prompt[i]) || prompt[i] == 27 || prompt[i] == 127) && flag != 4)
 			return ("");
 		if (flag == 1 && !std::isalpha(prompt[i]))
 			return ("");
@@ -72,19 +72,19 @@ std::string Contact::get_prompt(std::string message, int flag)
 {
 	std::string prompt;
 
-	while (std::cin) // Loop while input stream is valid
+	while (std::cin)
 	{
-		std::cout << message; // Display the prompt message
-		std::getline(std::cin, prompt); // Read entire line of input
-		if (!std::cin) // If input stream failed
+		std::cout << message;
+		std::getline(std::cin, prompt);
+		if (!std::cin)
 			break;
 		prompt = field_formater(prompt, flag);
-		if (!prompt.empty()) // If input is valid (not empty after formatting)
-			break; // Exit the loop with valid input
+		if (!prompt.empty())
+			break;
 		else
 			std::cerr << "Invalid prompt, try again." << std::endl;
 	}
-	return (prompt); // Return the validated input
+	return (prompt);
 }
 
 // Method to fill all contact fields
