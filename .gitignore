@@ -1,0 +1,8 @@
+.vscode/
+objects/
+*.o
+*.a
+*.swo
+*.swp
+.dist/
+.DS_Store
