@@ -1,19 +1,20 @@
-NAME		=	phonebook
+NAME		=	UnnecessaryViolence
 
 INC			=	includes/
 SRC_DIR		=	sources/
 OBJ_DIR		=	objects/
 
 CC			=	c++
-CFLAGS		=	-Wall -Werror -Wextra -std=c++98 -g
+CFLAGS		=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	@rm -f
 
-CPP00_EX01_DIR	=	$(SRC_DIR)main.cpp \
-					$(SRC_DIR)Contact.cpp \
-					$(SRC_DIR)Phonebook.cpp \
+CPP01_EX03_DIR	=	$(SRC_DIR)main.cpp \
+					$(SRC_DIR)Weapon.cpp \
+					$(SRC_DIR)HumanA.cpp \
+					$(SRC_DIR)HumanB.cpp \
 
-SRCS		=	$(CPP00_EX01_DIR)
+SRCS		=	$(CPP01_EX03_DIR)
 
 OBJS		=	$(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 
@@ -37,4 +38,4 @@ fclean:		clean
 
 re:		fclean all
 
-.PHONY:		clean fclean re
+.PHONY:	clean fclean re

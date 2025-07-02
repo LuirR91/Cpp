@@ -1,9 +1,11 @@
 #include "Phonebook.hpp"
+#include <csignal>
 
 int	main()
 {
 	Phonebook	book;
 	std::string	prompt;
+	std::signal(SIGINT, SIG_IGN);
 
 	std::cout << "<<<   Welcome to my phonebook   >>>" << std::endl;
 	std::cout << std::endl << "Type ADD to save a new contact" << std::endl;

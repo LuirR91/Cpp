@@ -1,4 +1,4 @@
-NAME		=	zombie
+NAME		=	BraiiiiiiinnnzzzZ
 
 INC			=	includes/
 SRC_DIR		=	sources/
@@ -10,6 +10,9 @@ CFLAGS		=	-Wall -Werror -Wextra -std=c++98
 RM			=	@rm -f
 
 CPP01_EX00_DIR	=	$(SRC_DIR)main.cpp \
+					$(SRC_DIR)Zombie.cpp \
+					$(SRC_DIR)newZombie.cpp \
+					$(SRC_DIR)randomChump.cpp \
 
 SRCS		=	$(CPP01_EX00_DIR)
 
