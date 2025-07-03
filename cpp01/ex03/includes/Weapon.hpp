@@ -1,6 +1,7 @@
 #pragma once
 
-#include "Weapon.h"
+#include <iostream>
+#include <string.h>
 
 class Weapon
 {

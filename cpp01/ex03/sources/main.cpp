@@ -1,6 +1,6 @@
-#include "Weapon.h"
-#include "HumanA.h"
-#include "HumanB.h"
+#include "Weapon.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
 
 void test1()
@@ -49,5 +49,5 @@ int main()
 	std::cout << "\n";
 	test2();
 	std::cout << "\n";
-	return (1);
+	return 0;
 }

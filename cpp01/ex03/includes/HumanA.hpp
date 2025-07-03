@@ -1,6 +1,7 @@
 #pragma once
 
-#include "HumanA.h"
+#include <iostream>
+#include <string.h>
 #include "Weapon.hpp"
 
 class HumanA

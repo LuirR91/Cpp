@@ -1,4 +1,4 @@
-#include "Zombie.h"
+#include "../includes/Zombie.hpp"
 
 int	main()
 {
@@ -14,5 +14,5 @@ int	main()
 
 	std::cout << "\nNow we use \"delete[]\" to call all the destructors in the array of Zombies.\n";
 	delete[] horde;
-	return (1);
+	return 0;
 }

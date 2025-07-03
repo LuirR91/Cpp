@@ -1,4 +1,4 @@
-#include "Zombie.h"
+#include "../includes/Zombie.hpp"
 
 int	main()
 {
@@ -23,7 +23,7 @@ int	main()
 
 	// AUTOMATIC CLEANUP EXPLANATION
 	std::cout << "\nStack_Zombie's desctructor is going to be called in the end of the program\nbecause it was created in the stack.\n";
-	return (1);
+	return 0;
 }
 
 // NOTE: When main() ends, 'stackZombie' (stack object) is automatically destroyed

@@ -1,4 +1,4 @@
-#include"Zombie.hpp"
+#include "Zombie.hpp"
 
 Zombie*	newZombie(std::string name)	// Function that creates a zombie on the heap and returns a pointer to it
 {
