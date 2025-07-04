@@ -13,30 +13,29 @@ Replacer::~Replacer()
 // Method to open input file and create output file with .replace extension
 bool	Replacer::setNewFile(std::string fileName)
 {
-	_oldFile.open(fileName.c_str(), std::ios::in);	// Open the input file in read mode
-	if (!_oldFile.is_open())	// Check if the file was successfully opened
+	_oldFile.open(fileName.c_str(), std::ios::in);
+	if (!_oldFile.is_open())
 	{
-		std::cout << "There is no file named \"" << fileName << "\".\n";	// Print error message if file doesn't exist or can't be opened
+		std::cout << "There is no file named \"" << fileName << "\".\n";
 		return false;
 	}
-	if (!_oldFile.good())		// Check if the file stream is in a good state (no errors)
+	if (!_oldFile.good())
 	{
-		_oldFile.close();		// Close the file if there's an error
+		_oldFile.close();
 		std::cout << "Error while opening File.\n";
 		return false;
 	}
-	// Create the new filename by adding the original filename before ".replace"
 	std::string newFileName = ".replace";
-	newFileName.insert(0, fileName);	// Insert original filename at position 0
-	_newFile.open(newFileName.c_str(), std::ios::out);	// Open the output file in write mode
-	if (!_newFile.good())	// Check if the output file was successfully created/opened
+	newFileName.insert(0, fileName);
+	_newFile.open(newFileName.c_str(), std::ios::out);
+	if (!_newFile.good())
 	{
 		_oldFile.close();
 		_newFile.close();
 		std::cout << "Error while opening NewFile.\n";
 		return false;
 	}
-	return true;	// Return true if both files opened successfully
+	return true;
 }
 
 // Method to close both input and output files
@@ -51,25 +50,54 @@ void	Replacer::Closefiles()
 // Method to replace all occurrences of s1 with s2 in the file
 bool	Replacer::replace(std::string s1, std::string s2)
 {
-	std::string	buffer;					// String to hold each line read from input file
-	size_t		s1_pos;					// Position where s1 is found in the buffer
-	int			s1_l = s1.length();		// Length of the string to be replaced
-	int			s2_l = s2.length();		// Length of the replacement string
+	std::string	buffer;
+	size_t		s1_pos;
+	int			s1_l = s1.length();
+	int			s2_l = s2.length();
 
-	while (getline(_oldFile, buffer))	// Read the input file line by line until end of file
+	while (getline(_oldFile, buffer))
 	{
-		s1_pos = buffer.find(s1);			// Find the first occurrence of s1 in the current line
-		while (s1_pos != std::string::npos && s1_l)	// Continue replacing while s1 is found and s1 is not empty
+		s1_pos = buffer.find(s1);
+		while (s1_pos != std::string::npos && s1_l)
 		{
-			buffer.erase(s1_pos, s1_l);	// Remove s1 from the buffer starting at position pos
-			buffer.insert(s1_pos, s2);		// Insert s2 at the same position where s1 was removed
-			_newFile << buffer.substr(0, s1_pos + s2_l);	// Write the processed part (up to end of replacement) to output file
-			buffer.erase(0, s1_pos + s2_l);	// Remove the processed part from buffer to continue with the rest
-			s1_pos = buffer.find(s1);		// Look for the next occurrence of s1 in the remaining buffer
+			buffer.erase(s1_pos, s1_l);
+			buffer.insert(s1_pos, s2);
+			_newFile << buffer.substr(0, s1_pos + s2_l);
+			buffer.erase(0, s1_pos + s2_l);
+			s1_pos = buffer.find(s1);
 		}
-		_newFile << buffer;				// Write any remaining part of the line to output file
-		if (!_oldFile.eof())			// Add newline if we're not at the end of file
+		_newFile << buffer;
+		if (!_oldFile.eof())
 			_newFile << "\n";
 	}
 	return true;
 }
+
+// Visualization
+
+// Suppose:
+// buffer = "abc123abc456"
+// s1 = "abc"
+// s2 = "X"
+
+// Step-by-step:
+// First occurrence:
+
+// s1_pos = 0
+// Erase "abc" at 0: "123abc456"
+// Insert "X" at 0: "X123abc456"
+// Write "X" to output
+// Erase processed part: buffer = "123abc456"
+
+// Second occurrence:
+
+// s1_pos = 3 (in "123abc456")
+// Erase "abc" at 3: "123456"
+// Insert "X" at 3: "123X456"
+// Write "123X" to output
+// Erase processed part: buffer = "456"
+// No more occurrences:
+
+// Write "456" to output
+// Final output:
+// X123X456
