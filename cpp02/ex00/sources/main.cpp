@@ -1,4 +1,4 @@
-#include "Fixed.hpp"
+#include "../includes/Fixed.hpp"
 
 int main( void )
 {
@@ -7,9 +7,9 @@ int main( void )
 	Fixed c;
 	c = b;
 
-	a.setRawBits(42);
-	b.setRawBits(42);
-	c.setRawBits(42);
+	// a.setRawBits(42);
+	// b.setRawBits(42);
+	// c.setRawBits(42);
 
 	std::cout << a.getRawBits() << std::endl;
 	std::cout << b.getRawBits() << std::endl;
