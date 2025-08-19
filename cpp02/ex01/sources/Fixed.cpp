@@ -7,33 +7,32 @@ Fixed::Fixed() : _fixedPointVal(0)
 	std::cout << "Default constructor called\n";
 }
 
-									// EX.: For int
-									// fixedPointVal = (intVal << fractionalBits)	<==>
-									// fixedPointVal = intVal * 2^fractionalBits	<==>
-									// fixedPointVal = 10 * 2^8						<==>
-									// fixedPointVal = 10 * 256						<==>
-									// fixedPointVal = 2560
-
 // Integer constructor - converts integer to fixed point representation by left-shifting
 Fixed::Fixed(const int intVal) : _fixedPointVal(intVal << _fractionalBits)
 {
 	std::cout << "Int constructor called\n";
 }
-
-//! (floatingPointVal * (1 << fractionalBits)) this needs to be done because we can't bitshift from int to a float
-									// EX.: For float
-									// fixedPointVal = floatingPointVal * (1 << fractionalBits)		<==>
-									// fixedPointVal = floatingPointVal * (1 * 2^fractionalBits)	<==>
-									// fixedPointVal = 42.42 * 2^8									<==>
-									// fixedPointVal = 42.42 * 256									<==>
-									// fixedPointVal = 10859,52 ~ 10860								<==>
-									// fixedPointVal ~= 10860
+// EX.: For int
+	// fixedPointVal = (intVal << fractionalBits)	<==>
+	// fixedPointVal = intVal * 2^fractionalBits	<==>
+	// fixedPointVal = 10 * 2^8						<==>
+	// fixedPointVal = 10 * 256						<==>
+	// fixedPointVal = 2560
 
 // Float constructor - converts float to fixed point representation by scaling and rounding
-Fixed::Fixed(const float floatingPointVal) : _fixedPointVal(roundf(floatingPointVal * ( 1 << _fractionalBits)))
+Fixed::Fixed(const float floatingPointVal) : _fixedPointVal(roundf(floatingPointVal * (1 << _fractionalBits)))
 {
 	std::cout << "Float constructor called\n";
 }
+
+//! (floatingPointVal * (1 << fractionalBits)) this needs to be done because we can't bitshift from int to a float
+// EX.: For float
+	// fixedPointVal = floatingPointVal * (1 << fractionalBits)		<==>
+	// fixedPointVal = floatingPointVal * (1 * 2^fractionalBits)	<==>
+	// fixedPointVal = 42.42 * 2^8									<==>
+	// fixedPointVal = 42.42 * 256									<==>
+	// fixedPointVal = 10859,52 ~ 10860								<==>
+	// fixedPointVal ~= 10860
 
 Fixed::Fixed(const Fixed &copy)
 {
