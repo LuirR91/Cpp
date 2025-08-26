@@ -29,7 +29,7 @@ int	main()
 
 	Human.attack("Undead");
 	Human.beRepaired(42);
-	// std::cout << "\nUnfortunately Human has no life left in his heart to fight back...\n";
+	
 	std::cout << "\n--- Report ---\n\n";
 	std::cout << "  Undead:\n      HP: " << Undead.getHitPoints() << "\n      EP: " \
 	<< Undead.getEnergyPoints() << "\n      AD: " << Undead.getAttackDamage();
