@@ -1,4 +1,4 @@
-NAME			=	cpp03ex01
+NAME			=	cpp03ex02
 
 INC				=	includes/
 SRC_DIR			=	sources/
@@ -9,11 +9,11 @@ CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 
 RM				=	@rm -f
 
-CPP03_EX01_DIR	=	$(SRC_DIR)main.cpp \
+CPP03_EX02_DIR	=	$(SRC_DIR)main.cpp \
 					$(SRC_DIR)ClapTrap.cpp \
-					$(SRC_DIR)ScavTrap.cpp \
+					$(SRC_DIR)FlagTrap.cpp \
 
-SRCS			=	$(CPP03_EX01_DIR)
+SRCS			=	$(CPP03_EX02_DIR)
 
 OBJS			=	$(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 

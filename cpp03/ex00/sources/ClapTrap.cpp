@@ -36,10 +36,13 @@ ClapTrap::~ClapTrap()
 ClapTrap&	ClapTrap::operator=(const ClapTrap &copy)
 {
 	std::cout << "Copy assignment operator called\n";
-	_name = copy._name;
-	_hitPoints = copy._hitPoints;
-	_energyPoints = copy._energyPoints;
-	_attackDamage = copy._attackDamage;
+	if (this != &copy)
+	{
+		_name = copy._name;
+		_hitPoints = copy._hitPoints;
+		_energyPoints = copy._energyPoints;
+		_attackDamage = copy._attackDamage;
+	}
 	return (*this);
 }
 
