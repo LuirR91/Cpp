@@ -40,6 +40,5 @@ int	main()
 	std::cout << "\nHit Points: " << Bot2.getHitPoints();
 	std::cout << "\nEnergy Points: " << Bot2.getEnergyPoints() << "\n\n";
 
-
 	return 0;
 }
