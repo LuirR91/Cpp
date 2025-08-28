@@ -11,7 +11,8 @@ RM				=	@rm -f
 
 CPP03_EX02_DIR	=	$(SRC_DIR)main.cpp \
 					$(SRC_DIR)ClapTrap.cpp \
-					$(SRC_DIR)FlagTrap.cpp \
+					$(SRC_DIR)ScavTrap.cpp \
+					$(SRC_DIR)FragTrap.cpp \
 
 SRCS			=	$(CPP03_EX02_DIR)
 
