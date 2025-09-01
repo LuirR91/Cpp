@@ -65,7 +65,7 @@ void	FragTrap::highFivesGuy()
 	if (!std::cin)
 	{
 		std::cout << _name <<  ": \"You Broke My Only Way To Get HighFives.\"\n";
-		return ;	
+		return ;
 	}
 	
 	std::string		prompt;
