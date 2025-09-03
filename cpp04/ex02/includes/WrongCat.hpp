@@ -6,7 +6,6 @@ class WrongCat : public WrongAnimal
 {
 	public:
 		WrongCat();
-		WrongCat(std::string type);
 		WrongCat(const WrongCat &object);
 		virtual ~WrongCat();
 

@@ -1,13 +1,8 @@
-#include "../inc/Dog.hpp"
+#include "../includes/Dog.hpp"
 
 Dog::Dog() : AAnimal("Dog"), _brain(new Brain())
 {
 	std::cout << GREEN << "Dog default constructor called." << RST << std::endl;
-}
-
-Dog::Dog(std::string type) : AAnimal(type), _brain(new Brain())
-{
-	std::cout << GREEN << "Dog costum constructor called." << RST << std::endl;
 }
 
 Dog::Dog(const Dog &object) : AAnimal(object), _brain(new Brain(*object._brain))

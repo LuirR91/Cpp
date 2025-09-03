@@ -1,4 +1,4 @@
-#include "../inc/WrongAnimal.hpp"
+#include "../includes/WrongAnimal.hpp"
 
 /************ Constructors and Destructor ************/
 

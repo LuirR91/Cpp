@@ -78,31 +78,6 @@ void testCopyConstructorAndAssignment()
 	std::cout << std::endl << YELLOW << "Clean up" << RST << std::endl;
 }
 
-void testCustomTypeConstructor()
-{
-	std::cout << std::endl << GREEN << "_____ Test Constructor with type name _____" << RST << std::endl;
-
-	std::cout << YELLOW << "Create custom type animals" << RST << std::endl;
-
-	Animal unknown("Unknown Animal");
-	Dog greatDane("Great Dane");
-	Cat sphinx("Sphinx Cat");
-
-	std::cout << std::endl << YELLOW << "Types" << RST << std::endl;
-	std::cout << "Unknown type: " << unknown.getType() << std::endl;
-	std::cout << "Dog type: " << greatDane.getType() << std::endl;
-	std::cout << "Cat type: " << sphinx.getType() << std::endl;
-
-	std::cout << std::endl << YELLOW << "Making sounds" << RST << std::endl;
-	std::cout << "Unknown Animal: ";
-	unknown.makeSound();
-	std::cout << "Great Dane: ";
-	greatDane.makeSound();
-	std::cout << "Sphinx Cat: ";
-	sphinx.makeSound();
-	std::cout << std::endl << YELLOW << "Clean up" << RST << std::endl;
-}
-
 void testWrongAnimal()
 {
 	std::cout << std::endl << GREEN << "_____ Testing WrongAnimal Polymorphism _____" << RST << std::endl;
@@ -141,12 +116,12 @@ void testWrongAnimal()
 int main()
 {
 	// Almost equal to test on subject, just looks nicer
-	testSubject();
+	// testSubject();
 	// Implement and turn in more tests than the ones given above
-	// testStackInstances();
+	testStackInstances();
 	//testCopyConstructorAndAssignment();
 	//testCustomTypeConstructor();
-	testWrongAnimal();
+	// testWrongAnimal();
 
 	std::cout << std::endl << GREEN << "All tests completed!" << RST << std::endl;
 

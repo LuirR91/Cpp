@@ -7,11 +7,6 @@ Dog::Dog() : Animal("Dog")
 	std::cout << GREEN << "Dog default constructor called." << RST << std::endl;
 }
 
-Dog::Dog(std::string type) : Animal(type)
-{
-	std::cout << GREEN << "Dog custom constructor called." << RST << std::endl;
-}
-
 Dog::Dog(const Dog &copy) : Animal(copy)
 {
 	std::cout << GREEN << "Dog copy constructor called" << RST << std::endl;

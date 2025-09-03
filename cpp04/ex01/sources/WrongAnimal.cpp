@@ -1,6 +1,6 @@
-#include "../inc/WrongAnimal.hpp"
+#include "WrongAnimal.hpp"
 
-/************ Constructors and Destructor ************/
+// CONSTRUCTORS / DESTRUCTORS
 
 WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 {
@@ -9,10 +9,10 @@ WrongAnimal::WrongAnimal() : _type("WrongAnimal")
 
 WrongAnimal::WrongAnimal(std::string type) : _type(type)
 {
-	std::cout << GREEN << "WrongAnimal costum constructor called." << RST << std::endl;
+	std::cout << GREEN << "WrongAnimal custom constructor called." << RST << std::endl;
 }
 
-WrongAnimal::WrongAnimal(const WrongAnimal &object) : _type(object._type)
+WrongAnimal::WrongAnimal(const WrongAnimal &copy) : _type(copy._type)
 {
 	std::cout << GREEN << "WrongAnimal copy constructor called" << RST << std::endl;
 }
@@ -22,33 +22,31 @@ WrongAnimal::~WrongAnimal()
 	std::cout << RED << "WrongAnimal default destructor called." << RST << std::endl;
 }
 
-/************ Setter ************/
+// SETTERS
 
 void	WrongAnimal::setType(std::string type)
 {
 	_type = type;
 }
 
-/************ Getter ************/
+// GETTERS
 
 std::string	WrongAnimal::getType()const
 {
 	return _type;
 }
 
-/************ Operator ************/
+// OPERATORS
 
-WrongAnimal	&WrongAnimal::operator=(const WrongAnimal &copy)
+WrongAnimal&	WrongAnimal::operator=(const WrongAnimal &copy)
 {
+	std::cout << YELLOW << "WrongAnimal copy assignment operator called" << RST << std::endl;
 	if(this != &copy)
 		_type = copy._type;
-
-	std::cout << YELLOW << "WrongAnimal copy assignment operator called" << RST << std::endl;
-
 	return *this;
 }
 
-/************ Member Function ************/
+// MEMBER FUNCTIONS
 
 void	WrongAnimal::makeSound()const
 {

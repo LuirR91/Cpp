@@ -10,7 +10,6 @@ class Cat : public AAnimal
 
 	public:
 		Cat();
-		Cat(std::string type);
 		Cat(const Cat &object);
 		virtual ~Cat();
 

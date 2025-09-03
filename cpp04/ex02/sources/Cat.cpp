@@ -1,13 +1,8 @@
-#include "../inc/Cat.hpp"
+#include "../includes/Cat.hpp"
 
 Cat::Cat() : AAnimal("Cat"), _brain(new Brain())
 {
 	std::cout << GREEN << "Cat default constructor called." << RST << std::endl;
-}
-
-Cat::Cat(std::string type) : AAnimal(type), _brain(new Brain())
-{
-	std::cout << GREEN << "Cat costum constructor called." << RST << std::endl;
 }
 
 Cat::Cat(const Cat &object) : AAnimal(object), _brain(new Brain(*object._brain))

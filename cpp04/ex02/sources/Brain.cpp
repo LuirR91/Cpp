@@ -1,4 +1,4 @@
-#include "../inc/Brain.hpp"
+#include "../includes/Brain.hpp"
 
 Brain::Brain() : fullCapacity(100)
 {

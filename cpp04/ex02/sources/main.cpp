@@ -1,6 +1,6 @@
-#include "AAnimal.hpp"
-#include "../inc/Cat.hpp"
-#include "../inc/Dog.hpp"
+#include "../includes/AAnimal.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Dog.hpp"
 
 void testAbstractAnimalClass()
 {

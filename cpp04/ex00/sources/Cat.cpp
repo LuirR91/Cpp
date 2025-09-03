@@ -7,11 +7,6 @@ Cat::Cat() : Animal("Cat")
 	std::cout << GREEN << "Cat default constructor called." << RST << std::endl;
 }
 
-Cat::Cat(std::string type) : Animal(type)
-{
-	std::cout << GREEN << "Cat custom constructor called." << RST << std::endl;
-}
-
 Cat::Cat(const Cat &copy) : Animal(copy)
 {
 	std::cout << GREEN << "Cat copy constructor called" << RST << std::endl;

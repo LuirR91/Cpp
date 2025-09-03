@@ -12,21 +12,21 @@
 
 #include <iostream>
 
-class Animal
+class WrongAnimal
 {
 	protected:
-		std::string _type;
+		std::string	_type;
 
 	public:
-		Animal();
-		Animal(std::string type);
-		Animal(const Animal &object);
-		virtual ~Animal();
+		WrongAnimal();
+		WrongAnimal(std::string type);
+		WrongAnimal(const WrongAnimal &copy);
+		virtual ~WrongAnimal();
 
-		Animal			&operator=(const Animal &copy);
+		WrongAnimal		&operator=(const WrongAnimal &copy);
 
 		void			setType(std::string type);
 		std::string		getType()const;
 
-		virtual void			makeSound()const;
+		void			makeSound()const;
 };

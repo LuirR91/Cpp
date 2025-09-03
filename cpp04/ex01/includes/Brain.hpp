@@ -19,10 +19,10 @@ class Brain
 
 	public:
 		Brain();
-		Brain(const Brain &object);
+		Brain(const Brain &copy);
 		~Brain();
 
-		Brain		&operator=(const Brain &copy);
+		Brain&		operator=(const Brain &copy);
 
 		std::string	getIdea(unsigned int i)const;
 		void		setIdea(std::string idea, std::string type);

@@ -1,13 +1,8 @@
-#include "../inc/WrongCat.hpp"
+#include "../includes/WrongCat.hpp"
 
 WrongCat::WrongCat() : WrongAnimal("WrongCat")
 {
 	std::cout << GREEN << "WrongCat default constructor called." << RST << std::endl;
-}
-
-WrongCat::WrongCat(std::string type) : WrongAnimal(type)
-{
-	std::cout << GREEN << "WrongCat costum constructor called." << RST << std::endl;
 }
 
 WrongCat::WrongCat(const WrongCat &object) : WrongAnimal(object)

@@ -10,7 +10,6 @@ class Dog : public AAnimal
 
 	public:
 		Dog();
-		Dog(std::string type);
 		Dog(const Dog &object);
 		virtual ~Dog();
 
