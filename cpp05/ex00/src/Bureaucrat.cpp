@@ -33,9 +33,9 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &og)
 	return (*this);
 }
 
-std::ostream&	operator<<(std::ostream &stream, const Bureaucrat &right)
+std::ostream&	operator<<(std::ostream &stream, const Bureaucrat &b)
 {
-	stream << "The Bureaucrat " << right.getName() << " has a grade of " << right.getGrade() << std::endl;
+	stream << "The Bureaucrat " << b.getName() << " has a grade of " << b.getGrade() << std::endl;
 	return (stream);
 }
 
