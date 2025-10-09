@@ -59,7 +59,7 @@ int main()
 {
 	try
 	{
-		Bureaucrat Duarte("Duarte", 149);
+		Bureaucrat Duarte("Duarte", 148);
 		Bureaucrat Ricardo("Ricardo", 1);
 
 		std::cout << "\n----- Initial values -----\n";
