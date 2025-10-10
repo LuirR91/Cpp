@@ -1,8 +1,8 @@
 NAME			=	cpp05ex01
 
-INC				=	incs/
-SRC_DIR			=	srcs/
-OBJ_DIR			=	objects/
+INC				=	inc/
+SRC_DIR			=	src/
+OBJ_DIR			=	obj/
 
 CC				=	c++
 CFLAGS			=	-Wall -Werror -Wextra -std=c++98
@@ -11,20 +11,21 @@ RM				=	@rm -f
 
 CPP05_EX01_DIR	=	$(SRC_DIR)main.cpp \
 					$(SRC_DIR)Bureaucrat.cpp \
+					$(SRC_DIR)Form.cpp \
 
 SRCS			=	$(CPP05_EX01_DIR)
 
 OBJS			=	$(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 
-all:	$(NAME)
+all:			$(NAME)
 
-$(NAME):	$(OBJS)
-		@echo "\033[1;32mMake .o and $(NAME).\033[0m"
-		@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME):		$(OBJS)
+				@echo "\033[1;32mMake .o and $(NAME).\033[0m"
+				@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp
-		@mkdir -p $(@D)
-		@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+				@mkdir -p $(@D)
+				@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
 
 clean:
 		$(RM) -r $(OBJ_DIR)

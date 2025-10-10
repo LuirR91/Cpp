@@ -3,6 +3,7 @@
 # include <iostream>
 # include <fstream>
 # include <string.h>
+# include "Form.hpp"
 
 class Bureaucrat
 {
@@ -24,6 +25,7 @@ class Bureaucrat
 		void	checkLimits();
 		void	incrementGrade();
 		void	decrementGrade();
+		void	signForm(Form &form);
 
 	class	GradeTooHighException: public std::exception
 	{
