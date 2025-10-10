@@ -67,11 +67,12 @@ int main()
 		std::cout << Ricardo;
 
 		decrementation_test(Duarte);
-		// incrementation_test(Ricardo);
+		incrementation_test(Ricardo);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	// instantiation_tests();
+	instantiation_tests();
+	return 0;
 }

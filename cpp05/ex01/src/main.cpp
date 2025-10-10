@@ -1,57 +1,61 @@
-#include "../inc/Bureaucrat.hpp"
+#include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-void	decrementation_test(Bureaucrat &b)
+void	easy_form_test(Bureaucrat &b)
 {
-	std::cout << "\n----- Decrementation -----\n";
+	std::cout << "\n----- Easy Form (success) -----\n";
 	try
 	{
-		b.decrementGrade();
-		b.decrementGrade();
-		std::cout << "I shouldn't print this!\n";
+		Form	Easy("Easy", 140, 145);
+		std::cout << Easy;
+		b.signForm(Easy);
+		std::cout << Easy;
+		b.signForm(Easy);
 	}
-	catch (std::exception &exception)
+	catch (std::exception &e)
 	{
-		std::cout << "Exception: " << exception.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	std::cout << b;
 }
 
-void	incrementation_test(Bureaucrat &b)
+void	hard_form_test(Bureaucrat &b)
 {
-	std::cout << "\n----- Incrementation -----\n";
+	std::cout << "\n----- Hard Form (not enough grade) -----\n";
 	try
 	{
-		b.incrementGrade();
-		b.incrementGrade();
-		std::cout << "I shouldn't print this!\n";
+		Form	Hard("Hard", 5, 10);
+		std::cout << Hard;
+		b.signForm(Hard);
+		std::cout << Hard;
 	}
-	catch (std::exception &exception)
+	catch (std::exception &e)
 	{
-		std::cout << "Exception: " << exception.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	std::cout << b;
 }
 
-void	instantiation_tests()
+void	invalid_forms_test()
 {
-	std::cout << "\n----- Invalid instantiations -----\n";
+	std::cout << "\n----- Lesser Form -----\n";
 	try
 	{
-		Bureaucrat Duarte("Duarte", 151);
-		std::cout << "I shouldn't print this!\n";
+		Form	Lesser("Lesser", 100, 20000);
+		std::cout << "I shouldn't print this!";
 	}
-	catch (std::exception &exception)
+	catch (std::exception &e)
 	{
-		std::cout << "Exception: " << exception.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
+
+	std::cout << "\n----- Greater Form -----\n";
 	try
 	{
-		Bureaucrat Ricardo("Ricardo", 0);
-		std::cout << "I shouldn't print this!\n";
+		Form	Greater("Greater", -20000, 100);
+		std::cout << "I shouldn't print this!";
 	}
-	catch (std::exception &exception)
+	catch (std::exception &e)
 	{
-		std::cout << "Exception: " << exception.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
 }
 
@@ -59,19 +63,18 @@ int main()
 {
 	try
 	{
-		Bureaucrat Duarte("Duarte", 148);
-		Bureaucrat Ricardo("Ricardo", 1);
-
-		std::cout << "\n----- Initial values -----\n";
-		std::cout << Duarte;
-		std::cout << Ricardo;
-
-		decrementation_test(Duarte);
-		// incrementation_test(Ricardo);
+		
+		Bureaucrat Diogo("Diogo", 130);
+		std::cout << "\n\n----- Initial values -----\n";
+		std::cout << Diogo;
+		
+		easy_form_test(Diogo);
+		hard_form_test(Diogo);
 	}
-	catch (std::exception &exception)
+	catch (std::exception &e)
 	{
-		std::cout << "Exception: " << exception.what() << std::endl;
+		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	// instantiation_tests();
+	invalid_forms_test();
+	return 0;
 }
