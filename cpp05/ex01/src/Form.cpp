@@ -6,7 +6,7 @@ Form::Form() : _name("default"), _signed(0), _gradeToSign(150), _gradeToExec(150
 }
 
 Form::Form(std::string name, int gradeToSign, int gradeToExec) :
-_name(name), _signed(0), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
+_name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
 	//std::cout << "Form custom constructor called\n";
 	checkLimits();
@@ -68,7 +68,7 @@ void	Form::beSigned(Bureaucrat &bureaucrat)
 		throw AlreadySigned();
 	if (bureaucrat.getGrade() > _gradeToSign)
 		throw Bureaucrat::GradeTooLowException();
-	_signed = 1;
+	_signed = true;
 }
 
 //EXCEPTIONS

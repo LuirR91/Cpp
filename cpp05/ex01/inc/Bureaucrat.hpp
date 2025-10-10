@@ -5,6 +5,8 @@
 # include <string.h>
 # include "Form.hpp"
 
+class Form;
+
 class Bureaucrat
 {
 	private:
