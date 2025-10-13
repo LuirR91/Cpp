@@ -23,9 +23,7 @@ Bureaucrat&	Bureaucrat::operator=(const Bureaucrat &og)
 {
 	//std::cout << "Bureaucrat copy assignment operator called\n";
 	if (this != &og)
-	{
 		_grade = og._grade;
-	}
 	return *this;
 }
 

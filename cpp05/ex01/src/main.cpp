@@ -68,12 +68,12 @@ int main()
 		std::cout << Diogo;
 		
 		easy_form_test(Diogo);
-		//hard_form_test(Diogo);
+		hard_form_test(Diogo);
 	}
 	catch (std::exception &e)
 	{
 		std::cout << "Exception: " << e.what() << std::endl;
 	}
-	//invalid_forms_test();
+	invalid_forms_test();
 	return 0;
 }

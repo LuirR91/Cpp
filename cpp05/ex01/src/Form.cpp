@@ -20,6 +20,7 @@ Form::Form(const Form &og) : _name(og._name), _gradeToSign(og._gradeToSign), _gr
 
 Form&	Form::operator=(const Form &og)
 {
+	//std::cout << "Form copy assignment operator called\n";
 	if (this != &og)
 		_signed = og._signed;
 	return *this;
