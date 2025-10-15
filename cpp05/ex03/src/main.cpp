@@ -7,23 +7,23 @@ int main()
 	try
 	{
 		Intern		Duarte;
-		Bureaucrat	Bea("Bea", 2);
+		Bureaucrat	Ricardo("Ricardo", 1);
 
-		form[0] = Duarte.makeForm("shrubbery creation", "Pentagon");
-		form[1] = Duarte.makeForm("robotomy request", "C-3PO");
-		form[2] = Duarte.makeForm("presidential pardon", "Socrates");
-		
+		form[0] = Duarte.makeForm("shrubbery creation", "Bonsai");
+		form[1] = Duarte.makeForm("robotomy request", "Robot");
+		form[2] = Duarte.makeForm("presidential pardon", "Diogo");
+
 		std::cout << std::endl << "Signing forms..." << std::endl;
-		Bea.signForm(*form[0]);
-		Bea.signForm(*form[1]);
-		Bea.signForm(*form[2]);
+		Ricardo.signForm(*form[0]);
+		Ricardo.signForm(*form[1]);
+		Ricardo.signForm(*form[2]);
 
 		std::cout << std::endl << "Executing forms..." << std::endl;
-		Bea.executeForm(*form[0]);
+		Ricardo.executeForm(*form[0]);
 		std::cout << std::endl;
-		Bea.executeForm(*form[1]);
+		Ricardo.executeForm(*form[1]);
 		std::cout << std::endl;
-		Bea.executeForm(*form[2]);
+		Ricardo.executeForm(*form[2]);
 		std::cout << std::endl;
 
 		for (int i = 0; i < 3; i++)
@@ -45,13 +45,13 @@ int main()
 	try
 	{
 		AForm		*wrong;
-		Intern		Alfredo;
-		Bureaucrat	Bruno("Bruno", 2);
+		Intern		Duarte;
+		Bureaucrat	Ricardo("Ricardo", 1);
 
-		wrong = Alfredo.makeForm("What is this?", "No one cares");
+		wrong = Duarte.makeForm("What is this?", "No one cares");
 
-		Bruno.signForm(*wrong);
-		Bruno.executeForm(*wrong);
+		Ricardo.signForm(*wrong);
+		Ricardo.executeForm(*wrong);
 		delete wrong;
 	}
 	catch (std::exception &e)

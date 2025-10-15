@@ -40,7 +40,7 @@ void	RobotomyRequestForm::action()const
 {
 	std::cout << "BrrrrRRRRrrrRRrrRRRRrrrrRRrrrr!!" << std::endl;
 	if (std::rand() % 2)
-		std::cout << _target << GREEN << " HAS SUCCESSFULLY BEEN ROBOTOMIZED!" << RST << std::endl;
+		std::cout << _target << " HAS SUCCESSFULLY BEEN ROBOTOMIZED!" << std::endl;
 	else
-		std::cout << _target << RED << " THE ROBOTOMIZATION PROCESS HAS FAILED!" << RST << std::endl;
+		std::cout << _target << " THE ROBOTOMIZATION PROCESS HAS FAILED!" << std::endl;
 }
