@@ -62,12 +62,12 @@ int main()
 		Bureaucrat Duarte("Duarte", 148);
 		Bureaucrat Ricardo("Ricardo", 1);
 
-		std::cout << "\n----- Initial values -----\n";
+		std::cout << "----- Initial values -----\n";
 		std::cout << Duarte;
 		std::cout << Ricardo;
 
 		decrementation_test(Duarte);
-		incrementation_test(Ricardo);
+		// incrementation_test(Ricardo);
 	}
 	catch (std::exception &e)
 	{
