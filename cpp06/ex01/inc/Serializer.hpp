@@ -13,7 +13,7 @@
 # include <iostream>
 # include <string>
 # include <stdint.h>
-# include <Data.hpp>
+# include "Data.hpp"
 
 class Serializer
 {
@@ -28,5 +28,3 @@ class Serializer
 		static uintptr_t serialize(Data* ptr);
 		static Data* deserialize(uintptr_t raw);
 };
-
-int	findType(const std::string &string);
