@@ -10,7 +10,7 @@ CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 RM				=	@rm -f
 
 CPP06_EX01_DIR	=	$(SRC_DIR)main.cpp \
-					$(SRC_DIR)Serializer.cpp \
+					$(SRC_DIR)Base.cpp \
 
 SRCS			=	$(CPP06_EX01_DIR)
 
