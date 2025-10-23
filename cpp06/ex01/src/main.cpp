@@ -35,3 +35,11 @@ int main()
 
 	return 0;
 }
+
+// reinterpret_cast
+
+// Performs low-level, bitwise reinterpretation of a type — tells the compiler to treat the bits as another type.
+
+// Examples of what it can do:
+//	- Cast between unrelated pointer types
+//	- Convert an integer to a pointer or vice versa (e.g., hardware access, serialization, etc.)

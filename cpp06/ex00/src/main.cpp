@@ -1,6 +1,6 @@
 #include "ScalarConverter.hpp"
 
-int main(int argc, char **argv)
+int main(int ac, char **av)
 {
 	// std::cout << "Char MIN: " << (CHAR_MIN) << std::endl;
 	// std::cout << "Char MAX: " << (CHAR_MAX) << "\n" << std::endl;
@@ -20,11 +20,20 @@ int main(int argc, char **argv)
 	// std::cout << "Double MIN - 1: " << std::numeric_limits<double>::min() - 1 << std::endl;
 	// std::cout << "Double MAX + 1: " << std::numeric_limits<double>::max() + 1 << "\n" << std::endl;
 
-	if (argc != 2)
+	if (ac != 2)
 	{
 		std::cout << "Wrong number of arguments" << std::endl;
 		return 0;
 	}
-	ScalarConverter::convert(argv[1]);
+	ScalarConverter::convert(av[1]);
 	return 0;
 }
+
+
+// static_cast
+
+// Performs compile-time conversions that are type-safe and well-defined by the compiler.
+
+// Example of what it can do:
+// Converting between numeric types (int → double, etc.)
+

@@ -1,4 +1,4 @@
-NAME			=	cpp06ex02
+NAME			=	cpp07ex01
 
 INC				=	inc/
 SRC_DIR			=	src/
@@ -9,10 +9,9 @@ CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 
 RM				=	@rm -f
 
-CPP06_EX02_DIR	=	$(SRC_DIR)main.cpp \
-					$(SRC_DIR)Base.cpp \
+CPP07_EX01_DIR	=	$(SRC_DIR)main.cpp \
 
-SRCS			=	$(CPP06_EX02_DIR)
+SRCS			=	$(CPP07_EX01_DIR)
 
 OBJS			=	$(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 

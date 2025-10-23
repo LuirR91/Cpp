@@ -92,3 +92,11 @@ int main()
 	delete test3;
 	return 0;
 }
+
+// dynamic_cast
+
+// Performs safe downcasting (within class hierarchies) at runtime, using Run-Time Type Information (RTTI).
+
+// Requirements:
+
+// The base class must have at least one virtual function (so it has RTTI).

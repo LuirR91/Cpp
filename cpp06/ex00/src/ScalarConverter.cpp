@@ -68,24 +68,21 @@ void ScalarConverter::convert(std::string str)
 			std::cout << "Not a valid literal" << std::endl;
 			return ;
 	}
-
-	if (d >= std::numeric_limits<int>::min() &&
-		d <= std::numeric_limits<int>::max())
+	//							-2147483648	 &&							 2147483647
+	if (d >= std::numeric_limits<int>::min() && d <= std::numeric_limits<int>::max())	// inside ints
 	{
-		if (d >= std::numeric_limits<char>::min() &&
-			d <= std::numeric_limits<char>::max())
+		if (d >= std::numeric_limits<char>::min() && d <= std::numeric_limits<char>::max())	// inside chars
 		{
 			int iv = static_cast<int>(d);
 			std::cout << "char: ";
 			if (iv >= 32 && iv <= 126)
-			std::cout << "'" << static_cast<char>(iv) << "'" << std::endl;
+				std::cout << "'" << static_cast<char>(iv) << "'" << std::endl;
 			else
-			std::cout << "Non displayable" << std::endl;
+				std::cout << "Non displayable" << std::endl;
 		}
 		else
-		{
 			std::cout << "char: impossible" << std::endl;
-		}
+
 		std::cout << "int: " << i << std::endl;
 	}
 	else
@@ -93,21 +90,11 @@ void ScalarConverter::convert(std::string str)
 		std::cout << "char: impossible" << std::endl;
 		std::cout << "int: impossible" << std::endl;
 	}
-
-	if (d == static_cast<int>(d))
-	{
-		std::cout << std::fixed;
-		std::cout << "float: " << std::setprecision(1) << f << "f" << std::endl;
-		std::cout << "double: " << d << std::endl;
-	}
-	else
-	{
-		std::cout << "float: " << f << "f" << std::endl;
-		std::cout << "double: " << d << std::endl;
-	}
+	std::cout << "float: " << f << "f" << std::endl;
+	std::cout << "double: " << d << std::endl;
 }
 
-int findType(const std::string& str)
+int findType(const std::string &str)
 {
 	bool	dot = false;
 
