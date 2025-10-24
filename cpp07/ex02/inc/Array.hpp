@@ -1,10 +1,11 @@
 #pragma once
 
+#include "Array.tpp"
 #include <iostream>
 #include <string>
 #include <fstream>
 
-template<class T>
+template<typename T>
 class Array
 {
 	private:
@@ -12,12 +13,19 @@ class Array
 		unsigned int	_size;
 
 	public:
-		Array();	// Creates an empty array.
-		Array(unsigned int n);	// Creates an array of n elements initialized by default.
+		Array();
+		Array(unsigned int n);
 		Array(const Array &og);
 		Array& operator=(const Array &og);
 		~Array();
 
-		unsigned int	size() const;
+		T&	operator[](unsigned int i) const;
 
+		unsigned int	size() const;
+		void			iter(void (*func)(T&));
+
+	class	OutOfBounds: public std::exception
+	{
+		virtual const char* what() const throw();
+	};
 };
