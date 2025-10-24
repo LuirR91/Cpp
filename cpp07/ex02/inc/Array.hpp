@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Array.tpp"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -22,10 +21,11 @@ class Array
 		T&	operator[](unsigned int i) const;
 
 		unsigned int	size() const;
-		void			iter(void (*func)(T&));
 
 	class	OutOfBounds: public std::exception
 	{
 		virtual const char* what() const throw();
 	};
 };
+
+#include "../src/Array.tpp"

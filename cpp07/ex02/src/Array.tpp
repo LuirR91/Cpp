@@ -67,13 +67,6 @@ unsigned int	Array<T>::size() const
 	return _size;
 }
 
-template <typename T>
-void	Array<T>::iter(void (*func)(T&))
-{
-	for(unsigned int i = 0; i < _size; i++)
-		func(_array[i]);
-}
-
 // EXCEPTIONS
 
 template <typename T>
