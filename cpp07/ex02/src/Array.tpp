@@ -12,10 +12,12 @@ template <typename T>
 Array<T>::Array(unsigned int n) : _array(new T[n]), _size(n)
 {
 	// std::cout << "Array custom constructor called\n";
+	for (unsigned int i = 0; i < _size; i++)
+		_array[i] = T();
 }
 
 template <typename T>
-Array<T>::Array(const Array &og) : _array(new T[n], _size(n))
+Array<T>::Array(const Array &og) : _array(new T[0])
 {
 	// std::cout << "Array copy constructor called\n";
 	*this = og;
@@ -28,8 +30,11 @@ Array<T>&	Array<T>::operator=(const Array &og)
 	if (this != &og)
 	{
 		if (_array)
-		delete[] _array;
+			delete[] _array;
 		_size = og.size();
+		_array = new T[_size];
+		for (unsigned int i = 0; i < _size; i++)
+			_array[i] = og._array[i];
 	}
 	return *this;
 }
@@ -37,9 +42,9 @@ Array<T>&	Array<T>::operator=(const Array &og)
 template <typename T>
 Array<T>::~Array()
 {
+	//std::cout << "Array default destructor called\n";
 	if (_array)
 		delete[] _array;
-	//std::cout << "Array default destructor called\n";
 }
 
 // OPERATORS
@@ -67,7 +72,7 @@ void	Array<T>::iter(void (*func)(T&))
 {
 	for(unsigned int i = 0; i < _size; i++)
 		func(_array[i]);
-};
+}
 
 // EXCEPTIONS
 
