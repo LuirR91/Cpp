@@ -14,7 +14,7 @@ int	main ()
 
 		try // Attempt to find the value 6 inside the deque 'd' using easyfind.
 		{
-			std::deque<int>::iterator it = easyfind(d, 30);
+			std::deque<int>::iterator it = easyfind(d, 1);
 			std::cout << "find(1): " << *it << std::endl;
 		}
 		catch (std::exception &e)
@@ -65,17 +65,17 @@ int	main ()
 	// LIST test
 	{
 		std::cout << "----- LIST -----" << std::endl;
-		int myints[] = {75, 23, 65, 42, 13};
-		std::list<int> l(myints, myints + 5);
+		std::list<int> l;
+		for (int i = 0; i <= 9; ++i) l.push_back(i);
 
 		try
 		{
-			std::list<int>::iterator it = easyfind(l, 65);
-			std::cout << "find(65): " << *it << std::endl;
+			std::list<int>::iterator it = easyfind(l, 8);
+			std::cout << "find(8): " << *it << std::endl;
 		}
 		catch (std::exception &e)
 		{
-			std::cout << "find(65): Exception: " << e.what() << std::endl;
+			std::cout << "find(8): Exception: " << e.what() << std::endl;
 		}
 
 		try
