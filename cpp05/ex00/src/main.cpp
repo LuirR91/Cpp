@@ -7,7 +7,8 @@ void	decrementation_test(Bureaucrat &b)
 	{
 		b.decrementGrade();
 		b.decrementGrade();
-		std::cout << "I shouldn't print this!\n";
+		b.decrementGrade();
+		// std::cout << "I shouldn't print this!\n";
 	}
 	catch (std::exception &e)
 	{
@@ -23,7 +24,7 @@ void	incrementation_test(Bureaucrat &b)
 	{
 		b.incrementGrade();
 		b.incrementGrade();
-		std::cout << "I shouldn't print this!\n";
+		// std::cout << "I shouldn't print this!\n";
 	}
 	catch (std::exception &e)
 	{
@@ -67,7 +68,7 @@ int main()
 		std::cout << Ricardo;
 
 		decrementation_test(Duarte);
-		// incrementation_test(Ricardo);
+		incrementation_test(Ricardo);
 	}
 	catch (std::exception &e)
 	{
