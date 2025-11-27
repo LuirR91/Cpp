@@ -1,4 +1,4 @@
-NAME			=	cpp09ex01
+NAME			=	RPN
 
 INC				=	inc/
 SRC_DIR			=	src/

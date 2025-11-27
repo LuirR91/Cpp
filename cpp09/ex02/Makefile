@@ -1,4 +1,4 @@
-NAME			=	cpp09ex02
+NAME			=	PmergeMe
 
 INC				=	inc/
 SRC_DIR			=	src/
