@@ -10,6 +10,7 @@ CFLAGS			=	-Wall -Werror -Wextra -std=c++98
 RM				=	@rm -f
 
 CPP09_EX01_DIR	=	$(SRC_DIR)main.cpp \
+					$(SRC_DIR)RPN.cpp
 
 SRCS			=	$(CPP09_EX01_DIR)
 

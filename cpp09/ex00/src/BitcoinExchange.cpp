@@ -3,46 +3,31 @@
 BitcoinExchange::BitcoinExchange()
 {}
 
-BitcoinExchange::BitcoinExchange(const BitcoinExchange &other)
+BitcoinExchange::BitcoinExchange(const BitcoinExchange &og)
 {
-	*this = other;
+	*this = og;
 }
 
-BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &other)
+BitcoinExchange	&BitcoinExchange::operator=(const BitcoinExchange &og)
 {
-	if (this != &other)
-		_dataBase = other._dataBase;
+	if (this != &og)
+		_dataBase = og._dataBase;
 	return *this;
 }
 
 BitcoinExchange::~BitcoinExchange()
 {}
 
-void	BitcoinExchange::loadDataBase(const std::string &fileName)
+std::string	BitcoinExchange::trim(const std::string &str) const
 {
-	std::ifstream	file(fileName.c_str());
-	if (!file.is_open())
-			throw std::runtime_error("Error: could not open the database file.");
+	std::size_t	start = 0;
+	std::size_t	end = str.size();
 
-	std::string	line;
-
-	while(std::getline(file, line))
-	{
-		if (line.empty())
-			continue ;
-
-		std::size_t	commaPos = line.find(',');
-
-		std::string	dateStr = line.substr(0, commaPos);
-		std::string	rateStr = line.substr(commaPos + 1);
-
-		float	rate = std::atof(rateStr.c_str());
-		if (!validDate(dateStr) || rate < 0.0f)
-			continue ;
-
-		_dataBase[dateStr] = rate;
-	}
-	file.close();
+	while (start < end && std::isspace(static_cast<unsigned char>(str[start])))
+		start++;
+	while (end > start && std::isspace(static_cast<unsigned char>(str[end - 1])))
+		end--;
+	return str.substr(start, end - start);
 }
 
 void	BitcoinExchange::processInput(const std::string &fileName) const
@@ -74,12 +59,15 @@ void	BitcoinExchange::processInput(const std::string &fileName) const
 	while (std::getline(infile, line))
 	{
 		if (line.empty())
+		{
+			std::cout << std::endl;
 			continue ;
+		}
 
 		size_t	pipePos = line.find(" | ");
 		if (pipePos == std::string::npos)
 		{
-			std::cout << "Error: no pipe symbol => " << line << " should be ( | )" << std::endl;
+			std::cout << "Error: no pipe symbol => " << line << " '( | ) not found'" << std::endl;
 			continue ;
 		}
 
@@ -113,7 +101,7 @@ void	BitcoinExchange::processInput(const std::string &fileName) const
 		for (std::size_t	i = 0; i < value.size(); i++)
 		{
 			char	c = value[i];
-			if (c != '-' && c != '.' && !std::isdigit(static_cast<unsigned char>(c)))
+			if (c != '.' && !std::isdigit(static_cast<unsigned char>(c)))
 			{
 				allGood = false;
 				break ;
@@ -145,20 +133,19 @@ void	BitcoinExchange::processInput(const std::string &fileName) const
 
 		float	rate = it->second;
 		float	result = valueNbr * rate;
-		if (result == 0.0f)
-			result = fabs(result);
 
-		std::cout << date << " => " << value << " = " << result << std::endl;
+		std::cout << std::fixed << std::setprecision(2)
+			<< date << " => " << value << " = " << result << std::endl;
 	}
 	infile.close();
 }
 
-bool		BitcoinExchange::isLeapYear(const int year) const
+bool	BitcoinExchange::isLeapYear(const int year) const
 {
 	return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
 }
 
-bool		BitcoinExchange::validDate(const std::string &date) const
+bool	BitcoinExchange::validDate(const std::string &date) const
 {
 	if (date.size() != 10 || date[4] != '-' || date[7] != '-')
 		return false;
@@ -186,14 +173,29 @@ bool		BitcoinExchange::validDate(const std::string &date) const
 	return true;
 }
 
-std::string	BitcoinExchange::trim(const std::string &str) const
+void	BitcoinExchange::loadDataBase(const std::string &fileName)
 {
-	std::size_t	start = 0;
-	std::size_t	end = str.size();
+	std::ifstream	file(fileName.c_str());
+	if (!file.is_open())
+			throw std::runtime_error("Error: could not open the database file.");
 
-	while (start < end && std::isspace(static_cast<unsigned char>(str[start])))
-		start++;
-	while (end > start && std::isspace(static_cast<unsigned char>(str[end - 1])))
-		end--;
-	return str.substr(start, end - start);
+	std::string	line;
+
+	while(std::getline(file, line))
+	{
+		if (line.empty())
+			continue ;
+
+		std::size_t	commaPos = line.find(',');
+
+		std::string	dateStr = line.substr(0, commaPos);
+		std::string	rateStr = line.substr(commaPos + 1);
+
+		float	rate = std::atof(rateStr.c_str());
+		if (!validDate(dateStr) || rate < 0.0f)
+			continue ;
+
+		_dataBase[dateStr] = rate;
+	}
+	file.close();
 }

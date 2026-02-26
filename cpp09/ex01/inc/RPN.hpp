@@ -6,10 +6,12 @@
 
 class RPN
 {
+	private:
+		RPN(const RPN &og);
+		RPN	&operator=(const RPN &og);
+
 	public:
 		RPN();
-		RPN(const RPN &other);
-		RPN	&operator=(const RPN &other);
 		~RPN();
 
 		int	eval(const std::string &expression) const;

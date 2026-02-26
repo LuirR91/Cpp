@@ -1,38 +1,35 @@
-NAME			=	PmergeMe
+NAME		=	PmergeMe
 
-INC				=	inc/
-SRC_DIR			=	src/
-OBJ_DIR			=	obj/
+INC_DIR		=	inc/
+SRC_DIR		=	src/
+OBJ_DIR		=	obj/
 
-CC				=	c++
-CFLAGS			=	-Wall -Werror -Wextra -std=c++98
+CXX			=	c++ -Wall -Werror -Wextra -std=c++98 -g
+RM			=	rm -f
 
-RM				=	@rm -f
-
-CPP09_EX02_DIR	=	$(SRC_DIR)main.cpp \
-
-SRCS			=	$(CPP09_EX02_DIR)
+SRCS			=	$(SRC_DIR)main.cpp \
+					$(SRC_DIR)PmergeMe.cpp
 
 OBJS			=	$(patsubst $(SRC_DIR)%.cpp,$(OBJ_DIR)%.o,$(SRCS))
 
 all:			$(NAME)
 
 $(NAME):		$(OBJS)
-				@echo "\033[1;32mMake .o and $(NAME).\033[0m"
-				@$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+				@$(CXX) $(OBJS) -o $(NAME)
+				@echo "\033[1;32m$(NAME) created.\033[0m"
 
 $(OBJ_DIR)%.o:	$(SRC_DIR)%.cpp
 				@mkdir -p $(@D)
-				@$(CC) $(CFLAGS) -I$(INC) -c $< -o $@
+				@$(CXX) -I$(INC_DIR) -c $< -o $@
 
 clean:
-		$(RM) -r $(OBJ_DIR)
-		@echo "\033[1;31mClean .o files.\033[0m"
+			@$(RM) -r $(OBJ_DIR)
+			@echo "\033[1;31mObject files deleted.\033[0m"
 
 fclean:		clean
-		$(RM) $(NAME)
-		@echo "\033[1;31mClean executable/s.\033[0m"
+			@$(RM) $(NAME)
+			@echo "\033[1;31m$(NAME) deleted.\033[0m"
 
-re:		fclean all
+re:			fclean all
 
-.PHONY:	clean fclean re
+.PHONY:		all clean fclean re
